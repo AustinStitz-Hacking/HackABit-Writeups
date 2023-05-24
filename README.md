@@ -408,7 +408,25 @@ You will use this jumpbox to attack other machines in the network. We've install
 
 ### Writeup
 
-Do later
+**Note:** Unfortunately, the Range is down as I am writing this, after completing the competition, so I cannot provide screenshots.
+
+This first challenge of the Range mostly just tests your ability to log into the jumpbox and find a flag on the filesystem.
+
+We recieved an email with the proper login information (including a direct IP address of `range.final.hackabit.com`), which you then just had to connect to with SSH, using `ssh user@ip` and entering the given password when prompted.
+
+I also ran `bash` to provide a more stable shell, including the current working directory in the prompt.
+
+After logging in, you could find the flag either by traversing the filesytem manually or automating this.
+
+One way is with the following command:
+
+```bash
+cat /*/flag.txt
+```
+
+If this didn't work, it would be possible to move up another level to `cat /*/*/flag.txt`.
+
+However, this does work, and we get the flag of `flag{welcome_to_the_range}`!
 
 ## RightFace
 
@@ -424,7 +442,25 @@ Remember that there may be non-vulnerable services on the machine. Recon is the 
 
 ### Writeup
 
-Do later
+**Note:** Unfortunately, the Range is down as I am writing this, after completing the competition, so I cannot provide screenshots directly of the machine.
+
+Since local IP addresses are used, we must use the jumpbox for all parts of this challenge.
+
+First, we can enumerate by running the following command:
+
+```bash
+nmap -sC -sV -v 10.128.0.5`
+```
+
+With the result of this, we find a `vsFTPd 2.3.4` service running on FTP port 21. When we try to connect to this port, we are able to download one file, `escalator`, but unable to download others, including `flag.txt`. However, since we can find this file here, despite not opening it, we know this is where we need to start.
+
+Looking at `msfconsole`, we can search for this process and find an interesting exploit:
+
+[RightFace Image 1](rightface1.png)
+
+To use this exploit, we can use `use 0`, `show options` to show the available options, `set RHOSTS 10.128.0.5` to set the remote host, and `exploit` to run the exploit!
+
+Once in, we can just read `flag.txt` and we get the flag, `flag{remember_this_one?_pays_to_be_a_winner}`!
 
 ## LeftFace
 
@@ -438,7 +474,44 @@ Do later
 
 ### Writeup
 
-Do later
+From within our session in RightFace, we find an interesting file, `escalator.c`, compiled as `escalator`. 
+
+`escalator.c` reads as follows:
+
+```c
+#include <stdio.h>
+
+int main(int argc, char *argv[]) {
+    FILE *file;
+    char ch;
+
+    // Check if a filename argument is provided
+    if (argc < 2) { return 1; }
+
+    // Open the file in read mode
+    file = fopen(argv[1], "r");
+  
+    // Check if the file was opened successfully
+    if (file == NULL) {
+        printf("An error occured.\n");
+        return 1;
+    }
+
+    // Read and print each character from the file
+    while ((ch = fgetc(file)) != EOF) {
+        putchar(ch);
+    }
+
+    // Close the file
+    fclose(file);
+
+    return 0;
+}
+```
+
+We can see that this file allows us to read other files, so we can run `./escalator /home/breakme-harder/flag.txt` to get the flag!
+
+And our flag is `flag{evaluate_this_my_dude}`!
 
 ## AboutFace
 
@@ -456,4 +529,26 @@ Once you have access to the box stay at the top of the hill and listen for flags
 
 ### Writeup
 
-Do later
+From within the jumpbox, we can run the following command:
+
+```bash
+nmap -sC -sV -v 10.128.0.4`
+```
+
+This shows us a few ports, including ProFTPd on port 21 and MiniServ 1.890 Webmin on port 10000.
+
+ProFTPd has a few vulnerabilities that can be found through Metasploit and Exploit-DB, but Webmin provides the specific version name which can allow us to find an exploit easier.
+
+Performing a quick Google search, we can find [this POC](https://github.com/foxsin34/WebMin-1.890-Exploit-unauthorized-RCE/blob/master/webmin-1.890_exploit.py) of CVE-2019–15107, which provides unauthorized RCE on this specific version of Webmin.
+
+Running this from the jumpbox, I was able to obtain remote code execution on the machine. My first attempt to spawn a shell was to add my SSH key to `authorized_keys` to then SSH into the machine for a more stable shell, but, as I later learned was due to @Eth007's use of `chattr +i`, I was unable to edit the `authorized_keys` file. I then tried a Python reverse shell, but Python was not present on the system, so I finally settled with Perl.
+
+From this, I was able to spawn a shell to retrieve the key in `/root/flag.txt`, `flag{bestow_the_crown}`.
+
+Then it was time for King of the Hill!
+
+I didn't have much time before the machine was shut down, but I was able to spawn a listener through netcat.
+
+I had a listener for a decent amount of the time I was on the machine, but did run into a few issues, including my listener's process being killed and netcat being deleted repeatedly. I was able to solve the netcat deletion by setting up a Python server on the jumpbox to send over a copy of `nc` to then run on the machine. However, before I could do anything further, the server was shut down by another competitor.
+
+I had plans to patch the vulnerable service, Webmin, and set up a backdoor within the service, as well as potentially fix the SSH issues to add my key, but was unable to do so due to the shutdown.
