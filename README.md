@@ -456,7 +456,7 @@ With the result of this, we find a `vsFTPd 2.3.4` service running on FTP port 21
 
 Looking at `msfconsole`, we can search for this process and find an interesting exploit:
 
-[RightFace Image 1](rightface1.png)
+![RightFace Image 1](rightface1.png)
 
 To use this exploit, we can use `use 0`, `show options` to show the available options, `set RHOSTS 10.128.0.5` to set the remote host, and `exploit` to run the exploit!
 
