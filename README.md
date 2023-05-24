@@ -7,10 +7,12 @@ Based on the challenge description describing "dumb comments about vulnerabiliti
 So let's start up DevTools!
 
 If we look in the elements tab, we can find an interesting ID as a part of the chat modal:
-image here
+
+![Leaky Image 1](leaky1.png)
 
 If we then look for the chat panel in the sources tab through `dvgpt/src/components/ChatPane.vue`, we find even more:
-image here
+
+![Leaky Image 2](leaky2.png)
 
 From this, we can get the flag, `flag{the_DOM_is_like_crazy_virtual_maaaan}`
 
