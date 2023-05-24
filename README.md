@@ -386,4 +386,64 @@ And our flag is `flag{what_firewall?_what_IDS?}`!
 
 ## Connection
 
+**Points:** 75
 
+**Author:** Nate Singer (helix)
+
+**Description:** This section is a series of challenges in a semi-isolated cyber range. Your goal is to compromise the boxes and get the flags. Your first challenge is more of a sanity-check/confirmation. We wanted to use private keys for this but logistics of distributing them was challenge so its just password login for now. Check your email, at exactly 5pm PST Friday you received a credential and IP address for this jumpbox. You can also use the connection info listed below.
+
+You will use this jumpbox to attack other machines in the network. We've installed nmap, metasploit and netcat for your convience. If you want other tooling installed later please reach out to staff and will consider those requests as you ask. Remember that you can use techniques like proxychains over SSH to emulate much of this functionality.
+
+**Links:** range.final.hackabit.com
+
+### Writeup
+
+Do later
+
+## RightFace
+
+**Points:** 100
+
+**Author:** Nate Singer (helix)
+
+**Description:** If you did the more advanced challenges during the qualifier this should already be familiar. Your goal here is to compromise the `10.128.0.5` machine and get access as the `breakme` user.
+
+Remember that there may be non-vulnerable services on the machine. Recon is the #1 priority. Keep this shell open once you have it, you'll need it for `Left Face`.
+
+**Links:** range.final.hackabit.com
+
+### Writeup
+
+Do later
+
+## LeftFace
+
+**Points:** 125
+
+**Author:** Nate Singer (helix)
+
+**Description:** With access to `10.128.0.5` your goal is to escelate priveleges to the `breakme-harder` user. Ultimately your goal is simply to read out the flag in `/home/breakme-harder/`.
+
+**Links:** range.final.hackabit.com
+
+### Writeup
+
+Do later
+
+## AboutFace
+
+**Points:** 150
+
+**Author:** Nate Singer (helix)
+
+**Description:** Different box this time, your target is now `10.128.0.4`--straight to root. Remember that there may be non-vulnerable services on the machine. Recon is the #1 focus.
+
+Once you have access to the box stay at the top of the hill and listen for flags on localhost:5000/tcp. You will get alive notices once every 60 seconds while you are connected so you can be sure that you'll receive flags at the specific release times. To see the release times check out the other section.
+
+**Caviets** You are root. This means you can do whatever you want, for the most part. You are welcome to lock people out but only in specific ways. If you accidentially take down any of the existing services or remove Nate's ability to SSH in for monitoring the machine will be reverted to the last known-good snapshot and you will probably lose access. This also goes for changing the flag files. If we determine that the flags has been altered the machine will also be reverted. Lastly, if someone has concurrent access for four flags in a row we may block them from future access to give others the opportunity to attack the machine--we'll decide this in real time during the weekend depending on how things go.
+
+**Links:** range.final.hackabit.com
+
+### Writeup
+
+Do later
