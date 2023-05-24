@@ -45,7 +45,7 @@ Most of these endpoints seem to be simple JS and CSS files, which you won't be a
 
 If we open that endpoint in a new tab, assuming the `message` parameter points to a file, we can set `?message=flag.txt` to get access to the flag.
 
-![BadML Image 1](badml2.png)
+![BadML Image 2](badml2.png)
 
 And there we have the flag, `flag{LFI_LetsgoFindIt}`!
 
@@ -62,7 +62,7 @@ Analyzing with the defaults, we can look at the symbol tree to find the data sto
 
 Nested under `Labels/f`, we find a label interestingly named `flag`! Let's look at that!
 
-image here
+![Santa Image 1](santa1.png)
 
 And there's our flag, `flag{baby_steps_gift_just_for_you}`!
 
