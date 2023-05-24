@@ -105,6 +105,20 @@ Do later
 
 ## Santa
 
+**Points:** 75
+
+**Author:** Nate Singer (helix)
+
+**Description:** You all asked for it so here it is, an intro to binary exploitation!
+
+Let's get started nice and simple, baby steps to reverse engineering (RE).
+
+*All challenges in this section use the same binary. The target is x86 and ASLR is on but it shouldn't be relevant to any of your exploits.*
+
+**Files:** [corruption](files/corruption)
+
+### Writeup
+
 This first challenge is relatively simple. Let's launch `ghidra` to look a bit more at the code for the binary file, `corruption`!
 
 Analyzing with the defaults, we can look at the symbol tree to find the data stored in the binary file.
@@ -116,6 +130,20 @@ Nested under `Labels/f`, we find a label interestingly named `flag`! Let's look 
 And there's our flag, `flag{baby_steps_gift_just_for_you}`!
 
 ## Coredump
+
+**Points:** 100
+
+**Author:** Nate Singer (helix)
+
+**Description:** Now that we have at least inspected the binary, lets go a bit deeper. You can't just overflow the buffer with a bunch of A's--reverse engineer the software and figure out your payload format. Smash the stack to get the flag, no control necessary yet. Once you have a working exploit, fire it against the remote target to get the real flag.
+
+*All challenges in this section use the same binary. The target is x86 and ASLR is on but it shouldn't be relevant to any of your exploits.*
+
+**Files:** [corruption](files/corruption)
+
+**Links:** juieqtrsdp.final.hackabit.com:54321
+
+### Writeup
 
 Now, we have to actually develop a payload for the binary file as it runs. We also have a remote location to connect to, `juieqtrsdp.final.hackabit.com:54321`.
 
@@ -132,6 +160,20 @@ Now, if we connect to our remote location with netcat, we can try this payload:
 It works, and now we have our flag, `flag{look_like_ur_a_real_RE}`!
 
 ## bitsANDbytes
+
+**Points:** 125
+
+**Author:** Nate Singer (helix)
+
+**Description:** Now that you have the ability to smash the stack, it's time to get control of the instruction pointer. Use your reverse engineering to figure out proper addresses, we've given you the code required to pull the flag.
+
+*All challenges in this section use the same binary. The target is x86 and ASLR is on but it shouldn't be relevant to any of your exploits.*
+
+**Files:** [corruption](files/corruption)
+
+**Links:** juieqtrsdp.final.hackabit.com:54321
+
+### Writeup
 
 As we start this challenge, we need to do a bit more in order to get a different flag. Looking at ghidra, we can see that the function `flag_function` includes an environment variable very similar to the title of this challenge:
 
@@ -185,6 +227,20 @@ And our flag is `flag{big_ret2flag_energy}`!
 
 ## Controller
 
+**Points:** 150
+
+**Author:** Nate Singer (helix)
+
+**Description:** Nice, last step, you have a leak but not for the right function, how can we tackle this problem?
+
+*All challenges in this section use the same binary. The target is x86 and ASLR is on but it shouldn't be relevant to any of your exploits.*
+
+**Files:** [corruption](files/corruption)
+
+**Links:** juieqtrsdp.final.hackabit.com:54321
+
+### Writeup
+
 This challenge works very similarly to bitsANDbytes, but we need to use the function `controller_flag` instead. 
 
 Using GDB, we can find the addresses locally of each function:
@@ -209,6 +265,18 @@ And our flag is `flag{almost_totally_full_control}`!
 # Triage
 
 ## Sluth
+
+**Points:** 75
+
+**Author:** Nate Singer (helix)
+
+**Description:** Everything in life is iterative...
+
+**NON-STANDARD FLAG FORMAT**
+
+**Files:** [corruption](files/sluth.txt)
+
+### Writeup
 
 As we download the file, `morse.txt`, it is clear the name refers to Morse Code, and based on the challenge description, it is clear that this is iterative, meaning this is a Morse Code code in Morse Code!
 
@@ -237,6 +305,18 @@ The translator fails on `..--.-`, but with a quick Google search, we find that t
 
 ## Inspector
 
+**Points:** 100
+
+**Author:** Nate Singer (helix)
+
+**Description:** It's just a simple stream challenge, how hard can it be?
+
+Both challenges for this section use the same pcapng file.
+
+**Files:** [corruption](files/triage.pcapng)
+
+### Writeup
+
 In this challenge, we are given a PCAP file to analyze, which we can open with Wireshark!
 
 Once in Wireshark, since we can assume from the challenge description that the flag is in plaintext, we can just search for a partial string, `g{` from the flag format, or `677b` in hexadecimal.
@@ -249,6 +329,16 @@ Although the flag is broken up some, we have our flag, `flag{tcp_streams_reveal_
 
 ## Coverup
 
+**Points:** 125
+
+**Author:** Nate Singer (helix)
+
+**Description:** There is a challenge hidden in coverup.jpg, extract the flag and profit.
+
+**Files:** [corruption](files/challenge.jpg)
+
+### Writeup
+
 In this challenge, since we are given an image and told there is information within it, we know it uses steganography. 
 
 Two of the most common steganography extraction tools are `binwalk` and `steghide`. Here, `binwalk` returns nothing of use, but `steghide` gives us something interesting.
@@ -260,6 +350,18 @@ It asks for a passphrase as usual, but leaving it blank still gives us the flag!
 And our flag is `flag{the_truth_is_burried_deep}`!
 
 ## Extraction
+
+**Points:** 150
+
+**Author:** Nate Singer (helix)
+
+**Description:** Check out the pcap file, something weird is going on in here...
+
+Both challenges for this section use the same pcapng file.
+
+**Files:** [corruption](files/triage.pcapng)
+
+### Writeup
 
 Going back to our PCAP file, we know there is something else hidden in there.
 
