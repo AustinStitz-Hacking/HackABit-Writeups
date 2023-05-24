@@ -10,6 +10,8 @@
 
 **Links:** https://wtashuxsyj.final.hackabit.com/
 
+### Writeup
+
 Based on the challenge description describing "dumb comments about vulnerabilities all over client-side code," it is pretty clear that the flag can be found in client-side code.
 
 So let's start up DevTools!
@@ -26,6 +28,16 @@ From this, we can get the flag, `flag{the_DOM_is_like_crazy_virtual_maaaan}`
 
 
 ## Extractor
+
+**Points:** 100
+
+**Author:** Nate Singer (helix)
+
+**Description:** We gave dvGPT a flag and for some reason trust it to keep it safe. These AIs are super duper secure my dude.
+
+**Links:** https://wtashuxsyj.final.hackabit.com/
+
+### Writeup
 
 Now, looking at this, it seems we have to do some LLM prompt engineering.
 
@@ -45,6 +57,18 @@ And there we have it, the flag is `flag{hey_you're_not_robert}`!
 
 ## BadML
 
+**Points:** 125
+
+**Author:** Nate Singer (helix)
+
+**Description:** Where does all this data come from? Have you found all the app endpoints?
+
+*The flag is located at `./flag.txt`*
+
+**Links:** https://wtashuxsyj.final.hackabit.com/
+
+### Writeup
+
 Since this challenge discusses endpoints, let's try the DevTools network tab to see what requests are made...
 
 ![BadML Image 1](badml1.png)
@@ -58,6 +82,23 @@ If we open that endpoint in a new tab, assuming the `message` parameter points t
 And there we have the flag, `flag{LFI_LetsgoFindIt}`!
 
 ## BadAI
+
+**Points:** 150
+
+**Author:** Nate Singer (helix)
+
+**Description:** So we have this guy named Bill that works here--he handles the support tickets for dvGPT. If you have any problems let us know and Bill will check it out. Bill does nothing but stare at the ticket feed, so you can expect him to check your request within a couple seconds.
+
+Bill can only view pages from dvGPT though, so don't bother sending him anything else.
+
+*The flag is stored in a cookie in Bill's browser.*
+
+> -- If you think you're close feel free to DM me (Nate) and I will help you depending on what you're asking and how close you are. There are some browser nuances you might not be aware of and if you are 99% of the way there we'll probably give it to you.
+
+**Links:** https://wtashuxsyj.final.hackabit.com/
+
+### Writeup
+
 Do later
 
 # Corruption
