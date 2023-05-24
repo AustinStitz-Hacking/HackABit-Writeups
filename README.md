@@ -26,7 +26,7 @@ Based on the challenge description describing "dumb comments about vulnerabiliti
 
 So let's start up DevTools!
 
-If we look in the elements tab, we can find an interesting ID as a part of the chat modal:
+If we look in the elements tab, we can find an interesting ID as a part of the chat panel:
 
 ![Leaky Image 1](leaky1.png)
 
