@@ -39,12 +39,13 @@ And there we have it, the flag is `flag{hey_you're_not_robert}`!
 
 Since this challenge discusses endpoints, let's try the DevTools network tab to see what requests are made...
 
-![BadML Image 1](badml.png)
+![BadML Image 1](badml1.png)
 
 Most of these endpoints seem to be simple JS and CSS files, which you won't be able to get much out of, them being client-side code. However, `/footer` provides something interesting, with a parameter of `message` in the search query.
 
 If we open that endpoint in a new tab, assuming the `message` parameter points to a file, we can set `?message=flag.txt` to get access to the flag.
-image here
+
+![BadML Image 1](badml2.png)
 
 And there we have the flag, `flag{LFI_LetsgoFindIt}`!
 
