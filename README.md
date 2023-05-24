@@ -1,3 +1,13 @@
+# HackABit Writeups
+
+This year, I competed in the inaugural [HackABit](https://www.hackabit.com/) competition!
+
+I've greatly enjoyed participating, completing three rounds of fun challenges! The first round was a quiz, the second a CTF competition, and the third a combination of CTF challenges including web, binex, and forensics, as well as attack/defense!
+
+I was personally able to complete all of the challenges in round 3 except for BadAI (which had an outage most of the competition) and the King of the Hill attack/defense challenges (which also was shut down by a competitor and not brought back up). 
+
+The challenges are posted at [https://github.com/Shift-Cyber/hab-challenges-public](https://github.com/Shift-Cyber/hab-challenges-public).
+
 # dvGPT
 
 ## Leaky
