@@ -1,1 +1,5 @@
-theme: hacker
+title: HackABit Writeups
+description: Writeups for HackABit 0x01!
+show_downloads: true
+google_analytics:
+theme: jekyll-theme-hacker
