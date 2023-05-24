@@ -22,20 +22,24 @@ From this, we can get the flag, `flag{the_DOM_is_like_crazy_virtual_maaaan}`
 Now, looking at this, it seems we have to do some LLM prompt engineering.
 
 Let's start simple:
-image here
+
+![Extractor Image 1](extractor1.png)
 
 Now again...
-image here
+
+![Extractor Image 2](extractor2.png)
 
 So it seems we have to be Robert to get the flag...
-image here
+
+![Extractor Image 3](extractor3.png)
 
 And there we have it, the flag is `flag{hey_you're_not_robert}`!
 
 ## BadML
 
 Since this challenge discusses endpoints, let's try the DevTools network tab to see what requests are made...
-image here
+
+![BadML Image 1](badml.png)
 
 Most of these endpoints seem to be simple JS and CSS files, which you won't be able to get much out of, them being client-side code. However, `/footer` provides something interesting, with a parameter of `message` in the search query.
 
