@@ -3,8 +3,11 @@
 ## Leaky
 
 **Points:** 75
+
 **Author:** Nate Singer (helix)
+
 **Description:** People leave dumb comments about vulnerabilities all over client-side code... most modern web applications don't display all the possible code at once though, for a variety of reasons.
+
 **Links:** https://wtashuxsyj.final.hackabit.com/
 
 Based on the challenge description describing "dumb comments about vulnerabilities all over client-side code," it is pretty clear that the flag can be found in client-side code.
