@@ -8,7 +8,7 @@
 
 **Description:** People leave dumb comments about vulnerabilities all over client-side code... most modern web applications don't display all the possible code at once though, for a variety of reasons.
 
-**Links:** https://wtashuxsyj.final.hackabit.com/
+**Links:** [https://wtashuxsyj.final.hackabit.com/](https://wtashuxsyj.final.hackabit.com/)
 
 ### Writeup
 
@@ -35,7 +35,7 @@ From this, we can get the flag, `flag{the_DOM_is_like_crazy_virtual_maaaan}`
 
 **Description:** We gave dvGPT a flag and for some reason trust it to keep it safe. These AIs are super duper secure my dude.
 
-**Links:** https://wtashuxsyj.final.hackabit.com/
+**Links:** [https://wtashuxsyj.final.hackabit.com/](https://wtashuxsyj.final.hackabit.com/)
 
 ### Writeup
 
@@ -65,7 +65,7 @@ And there we have it, the flag is `flag{hey_you're_not_robert}`!
 
 *The flag is located at `./flag.txt`*
 
-**Links:** https://wtashuxsyj.final.hackabit.com/
+**Links:** [https://wtashuxsyj.final.hackabit.com/](https://wtashuxsyj.final.hackabit.com/)
 
 ### Writeup
 
@@ -95,7 +95,7 @@ Bill can only view pages from dvGPT though, so don't bother sending him anything
 
 > -- If you think you're close feel free to DM me (Nate) and I will help you depending on what you're asking and how close you are. There are some browser nuances you might not be aware of and if you are 99% of the way there we'll probably give it to you.
 
-**Links:** https://wtashuxsyj.final.hackabit.com/
+**Links:** [https://wtashuxsyj.final.hackabit.com/](https://wtashuxsyj.final.hackabit.com/)
 
 ### Writeup
 
@@ -274,7 +274,7 @@ And our flag is `flag{almost_totally_full_control}`!
 
 **NON-STANDARD FLAG FORMAT**
 
-**Files:** [corruption](files/sluth.txt)
+**Files:** [morse.txt](files/morse.txt)
 
 ### Writeup
 
@@ -313,7 +313,7 @@ The translator fails on `..--.-`, but with a quick Google search, we find that t
 
 Both challenges for this section use the same pcapng file.
 
-**Files:** [corruption](files/triage.pcapng)
+**Files:** [triage.pcapng](files/triage.pcapng)
 
 ### Writeup
 
@@ -335,7 +335,7 @@ Although the flag is broken up some, we have our flag, `flag{tcp_streams_reveal_
 
 **Description:** There is a challenge hidden in coverup.jpg, extract the flag and profit.
 
-**Files:** [corruption](files/challenge.jpg)
+**Files:** [challenge.jpg](files/challenge.jpg)
 
 ### Writeup
 
@@ -359,7 +359,7 @@ And our flag is `flag{the_truth_is_burried_deep}`!
 
 Both challenges for this section use the same pcapng file.
 
-**Files:** [corruption](files/triage.pcapng)
+**Files:** [triage.pcapng](files/triage.pcapng)
 
 ### Writeup
 
